@@ -49,8 +49,10 @@
     <h2>Your Cart</h2>
     <div id="cartItems"></div>
     <div class="total" id="cartTotal"></div>
-    window.location.href="https://wa.me/917207876364?text="+encodeURIComponent(msg);
-</a>
+
+<button class="primary" onclick="orderAll()">
+  Order on WhatsApp
+</button>
   </div>
 </div>
 
@@ -124,7 +126,7 @@ function orderAll(){
   msg+=`%0AMobile: ${phone}`;
   msg+=`%0ADelivery Address: ${address}`;
 
-  window.location.href="https://wa.me/917207876364";
+  window.location.href="https://wa.me/"+WHATSAPP+"?text="+msg;
 }
 function toast(t){const x=document.createElement("div");x.className="toast";x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),1500);}
 render();

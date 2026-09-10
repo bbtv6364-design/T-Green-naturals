@@ -1,0 +1,9 @@
+{
+  "name":"T Green Naturals",
+  "short_name":"T Green",
+  "start_url":"./",
+  "display":"standalone",
+  "background_color":"#f7faf6",
+  "theme_color":"#174d2a",
+  "icons":[{"src":"assets/logo.png","sizes":"512x512","type":"image/png"}]
+}

@@ -93,13 +93,37 @@ function renderCart(){
 function showCart(){document.getElementById("cartModal").classList.remove("hidden");renderCart();}
 function closeCart(){document.getElementById("cartModal").classList.add("hidden");}
 function orderAll(){
- const entries=Object.entries(cart).filter(([_,q])=>q>0);
- if(!entries.length){toast("Add a product first");return;}
- let msg="Hello T Green Naturals!%0A%0AI would like to order:%0A";
- let total=0;
- entries.forEach(([id,q])=>{const p=products.find(x=>x.id==id);total+=p.price*q;msg+=`• ${p.name} × ${q} = ₹${p.price*q}%0A`;});
- msg+=`%0AEstimated total: ₹${total}%0A%0AName:%0ADelivery Address:`;
- window.open("https://wa.me/"+WHATSAPP+"?text="+msg,"_blank");
+  const entries=Object.entries(cart).filter(([,q])=>q>0);
+
+  if(!entries.length){
+    toast("Add a product first");
+    return;
+  }
+
+  const name=document.getElementById("customerName").value.trim();
+  const phone=document.getElementById("customerPhone").value.trim();
+  const address=document.getElementById("customerAddress").value.trim();
+
+  if(!name || !phone || !address){
+    toast("Please enter your Name, Mobile and Address");
+    return;
+  }
+
+  let msg="Hello T Green Naturals!%0A%0AI would like to order:%0A";
+  let total=0;
+
+  entries.forEach(([id,q])=>{
+    const p=products.find(x=>x.id==id);
+    total+=p.price*q;
+    msg+=`%0A${p.name} - ${q} x ₹${p.price}`;
+  });
+
+  msg+=`%0A%0AEstimated Total: ₹${total}`;
+  msg+=`%0A%0ACustomer Name: ${name}`;
+  msg+=`%0AMobile: ${phone}`;
+  msg+=`%0ADelivery Address: ${address}`;
+
+  window.open("https://wa.me/"+WHATSAPP+"?text="+msg,"_blank");
 }
 function toast(t){const x=document.createElement("div");x.className="toast";x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),1500);}
 render();

@@ -53,12 +53,12 @@
 <script>
 const WHATSAPP="917207876364";
 const products=[
- {id:1,name:"Cold Pressed Groundnut Oil",price:350,unit:"1 L"},
- {id:2,name:"Cold Pressed Coconut Oil",price:450,unit:"1 L"},
- {id:3,name:"Multifloral Honey",price:595,unit:""},
- {id:4,name:"Pooja Oil",price:248,unit:"1 L"},
- {id:5,name:"Cold Pressed Sesame Oil",price:515,unit:"1 L"},
- {id:6,name:"Pink Salt",price:88,unit:"1 kg"}
+ {id:1,name:"Cold Pressed Groundnut Oil",price:350,unit:"1 L",image:"groundnut-oil.jpg"},
+{id:2,name:"Cold Pressed Coconut Oil",price:450,unit:"1 L",image:"coconut-oil.jpg"},
+{id:3,name:"Multifloral Honey",price:595,unit:"",image:"multifloral-honey.jpg"},
+{id:4,name:"Pooja Oil",price:248,unit:"1 L",image:"pooja-oil.jpg"},
+{id:5,name:"Cold Pressed Sesame Oil",price:515,unit:"1 L",image:"sesame-oil.jpg"},
+{id:6,name:"Pink Salt",price:88,unit:"1 kg",image:"pink-salt.jpg"}
 ];
 let cart=JSON.parse(localStorage.getItem("tg_cart")||"{}");
 
@@ -69,7 +69,7 @@ function change(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];sa
 function render(){
  document.getElementById("productGrid").innerHTML=products.map(p=>`
  <article class="card">
-   <div class="photo">🌿</div>
+   <div class="photo"><img src="${p.image}" alt="${p.name}"></div>
    <h3>${p.name}</h3><div class="price">₹${p.price} ${p.unit?"/ "+p.unit:""}</div>
    <button onclick="add(${p.id})">Add to Cart</button>
  </article>`).join("");

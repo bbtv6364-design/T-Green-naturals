@@ -1,4 +1,45 @@
-*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7faf6;color:#17351f;padding-bottom:75px}header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e6eee7;display:flex;align-items:center;justify-content:space-between;padding:10px 14px}.brand{display:flex;align-items:center;gap:9px}.brand img{width:45px;height:45px;object-fit:contain}.brand b{display:block;font-size:13px;letter-spacing:.8px}.brand small{display:block;color:#6c7c70;font-size:10px;margin-top:2px}.cart{border:0;background:#edf6ee;border-radius:22px;padding:9px 12px;font-size:16px}.hero{margin:14px;border-radius:22px;padding:28px 20px;background:linear-gradient(145deg,#174d2a,#397a43);color:white}.hero h1{font-size:27px;line-height:1.1;margin:0 0 10px}.hero p{opacity:.9}.hero button,.primary{border:0;border-radius:12px;padding:12px 18px;background:#fff;color:#174d2a;font-weight:700}.hero+section{padding:0 14px}h2{font-size:21px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}..card{
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f7faf6;color:#17351f;padding-bottom:75px}header{position:sticky;top:0;z-index:5;background:#fff;border-bottom:1px solid #e6eee7;display:flex;align-items:center;justify-content:space-between;padding:10px 14px}.brand{display:flex;align-items:center;gap:9px}.brand img{width:45px;height:45px;object-fit:contain}.brand b{display:block;font-size:13px;letter-spacing:.8px}.brand small{display:block;color:#6c7c70;font-size:10px;margin-top:2px}.cart{border:0;background:#edf6ee;border-radius:22px;padding:9px 12px;font-size:16px}..hero{
+  margin:14px;
+  border-radius:24px;
+  padding:32px 22px;
+  background:linear-gradient(135deg,#123f22,#2f7540);
+  color:#fff;
+  box-shadow:0 8px 24px rgba(18,63,34,.18);
+}
+
+.hero small{
+  display:block;
+  font-size:12px;
+  font-weight:700;
+  letter-spacing:1px;
+  margin-bottom:12px;
+  opacity:.9;
+}
+
+.hero h1{
+  font-size:30px;
+  line-height:1.12;
+  margin:0 0 12px;
+  font-weight:800;
+}
+
+.hero p{
+  font-size:15px;
+  line-height:1.5;
+  margin:0 0 20px;
+  opacity:.92;
+}
+
+.hero button{
+  border:0;
+  border-radius:13px;
+  padding:13px 22px;
+  background:#fff;
+  color:#174d2a;
+  font-weight:800;
+  font-size:15px;
+  box-shadow:0 4px 12px rgba(0,0,0,.12);
+};color:white}.hero h1{font-size:27px;line-height:1.1;margin:0 0 10px}.hero p{opacity:.9}.hero button,.primary{border:0;border-radius:12px;padding:12px 18px;background:#fff;color:#174d2a;font-weight:700}.hero+section{padding:0 14px}h2{font-size:21px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}..card{
   background:#fff;
   border:1px solid #e3ece4;
   border-radius:18px;

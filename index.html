@@ -123,7 +123,7 @@ function orderAll(){
   msg+=`%0AMobile: ${phone}`;
   msg+=`%0ADelivery Address: ${address}`;
 
-  window.open("https://wa.me/"+WHATSAPP+"?text="+msg,"_blank");
+  window.location.href="https://wa.me/"+WHATSAPP+"?text="+encodeURIComponent(msg);
 }
 function toast(t){const x=document.createElement("div");x.className="toast";x.textContent=t;document.body.appendChild(x);setTimeout(()=>x.remove(),1500);}
 render();

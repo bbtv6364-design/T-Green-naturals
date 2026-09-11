@@ -68,14 +68,55 @@ grid.innerHTML=products.map(p=>'<article class="card"><div class="pic"><img src=
 renderCart()
 }
 function renderCart(){
-const entries=Object.entries(cart).filter(x=>x[1]>0);let qty=0,t=0;
-entries.forEach(x=>qty+=Number(x[1]));count.textContent=qty;
-if(!entries.length)items.innerHTML='<p class="muted">Your cart is empty.</p>';
-else items.innerHTML=entries.map(x=>{const p=products.find(v=>v.id==x[0]);t+=p.price*Number(x[1]);return '<div class="row"><span>'+p.name+'<br><small>'+x[1]+' × ₹'+p.price+'</small></span><b>₹'+(p.price*Number(x[1]))+'</b></div>'}).join("");
+const entries=Object.entries(cart).filter(x=>Number(x[1])>0);
+let qty=0,t=0;
+
+entries.forEach(x=>qty+=Number(x[1]));
+count.textContent=qty;
+
+if(!entries.length){
+items.innerHTML='<p class="muted">Your cart is empty.</p>';
+}else{
+items.innerHTML=entries.map(x=>{
+const p=products.find(v=>v.id==x[0]);
+const q=Number(x[1]);
+t+=p.price*q;
+
+return '<div class="row">'+
+'<span><b>'+p.name+'</b><br><small>₹'+p.price+' × '+q+'</small></span>'+
+'<span style="display:flex;align-items:center;gap:6px">'+
+'<button onclick="changeQty('+p.id+',-1)">−</button>'+
+'<b>'+q+'</b>'+
+'<button onclick="changeQty('+p.id+',1)">+</button>'+
+'<button onclick="removeItem('+p.id+')" style="border:0;background:#fee;color:#b00;border-radius:6px;padding:5px 8px">🗑️</button>'+
+'<b>₹'+(p.price*q)+'</b>'+
+'</span>'+
+'</div>';
+}).join("");
+}
+
 total.textContent="Total: ₹"+t;
-let msg="Hello T Green Naturals!\n\nI would like to order:\n";
-entries.forEach(x=>{const p=products.find(v=>v.id==x[0]);msg+=p.name+" - "+x[1]+" x ₹"+p.price+"\n"});
-msg+="\nEstimated Total: ₹"+t;wa.href="https://wa.me/917207876364?text="+encodeURIComponent(msg)
+
+let msg="Hello T Green Naturals!\\n\\nI would like to order:\\n";
+
+entries.forEach(x=>{
+const p=products.find(v=>v.id==x[0]);
+msg+=p.name+" - "+x[1]+" x ₹"+p.price+"\\n";
+});
+
+msg+="\\nEstimated Total: ₹"+t;
+wa.href="https://wa.me/917207876364?text="+encodeURIComponent(msg);
+}
+
+function changeQty(id,delta){
+cart[id]=(Number(cart[id])||0)+delta;
+if(cart[id]<=0) delete cart[id];
+save();
+}
+
+function removeItem(id){
+delete cart[id];
+save();
 }
 function openCart(){modal.classList.add("show");renderCart()}function closeCart(){modal.classList.remove("show")}
 document.getElementById("cartBtn").onclick=openCart;document.getElementById("viewCart").onclick=openCart;document.getElementById("navCart").onclick=e=>{e.preventDefault();openCart()};document.getElementById("closeCart").onclick=closeCart;modal.onclick=e=>{if(e.target===modal)closeCart()};render();

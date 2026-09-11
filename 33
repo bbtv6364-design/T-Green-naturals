@@ -1,1 +1,84 @@
 
+<!doctype html>
+<html laang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>T Green Naturals</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f8f2;color:#17351f}
+a{text-decoration:none;color:inherit}.wrap{max-width:1100px;margin:auto;padding:0 18px}
+header{background:#fff;border-bottom:1px solid #e2e7dc;position:sticky;top:0;z-index:5}
+.head{height:70px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-weight:800;letter-spacing:1px}.brand small{display:block;font-size:10px;color:#71806e;letter-spacing:2px;margin-top:4px}
+.cart{border:0;background:#17351f;color:white;padding:10px 15px;border-radius:25px;font-weight:700}
+.hero{padding:60px 0 50px;background:linear-gradient(135deg,#eaf3e4,#fff)}
+.tag{font-size:12px;font-weight:800;letter-spacing:2px;color:#70816a}
+h1{font-size:clamp(40px,7vw,68px);line-height:1.03;margin:12px 0}
+.hero p{max-width:650px;color:#657166;font-size:18px;line-height:1.6}
+.btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}.btn{display:inline-block;padding:14px 20px;border-radius:28px;font-weight:800;border:1px solid #17351f;background:white}.primary{background:#17351f;color:white}
+.section{padding:48px 0}.section h2{font-size:32px;margin:7px 0}.muted{color:#718071}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:26px}
+.card{background:white;border:1px solid #e2e5dc;border-radius:20px;overflow:hidden;box-shadow:0 5px 18px #17351f12}
+.pic{height:190px;background:#eef2e9;display:flex;align-items:center;justify-content:center}.pic img{width:100%;height:100%;object-fit:contain;object-position:center;padding:8px;filter:drop-shadow(0 14px 10px rgba(0,0,0,.28)) drop-shadow(0 3px 3px rgba(0,0,0,.15));transform:perspective(700px) rotateY(-3deg) scale(.94);transition:.3s ease}.noimg{font-size:45px}
+.info{padding:18px}.badge{font-size:11px;font-weight:800;color:#71816b;text-transform:uppercase;letter-spacing:1px}
+.info h3{margin:8px 0;font-size:19px}.desc{color:#718071;font-size:14px;min-height:38px;line-height:1.4}
+.price{font-size:20px;font-weight:800;margin:14px 0}.add{width:100%;border:0;border-radius:12px;padding:12px;background:#17351f;color:white;font-weight:800;font-size:15px}
+.why{background:#17351f;color:white}.why .muted{color:#cbd7c9}.whygrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:25px}.whybox{padding:22px;border:1px solid #ffffff22;border-radius:18px}
+.order{background:#e9f0e4;border-radius:25px;padding:30px;text-align:center}
+.bottom{position:fixed;bottom:12px;left:50%;transform:translateX(-50%);background:#17351f;color:white;border-radius:30px;padding:9px 12px;display:flex;gap:5px;z-index:10;box-shadow:0 8px 25px #0003}.bottom a{padding:8px 11px;font-size:12px;text-align:center}
+.modal{display:none;position:fixed;inset:0;background:#0008;z-index:20;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}
+.box{background:white;border-radius:22px;max-width:520px;width:100%;padding:22px}.row{display:flex;justify-content:space-between;gap:15px;padding:12px 0;border-bottom:1px solid #eee}.close{float:right;border:0;background:#eee;border-radius:50%;width:32px;height:32px}.wa{display:block;text-align:center;background:#17351f;color:white;padding:14px;border-radius:12px;margin-top:18px;font-weight:800}
+@media(max-width:600px){.hero{padding-top:42px}.pic{height:170px}.bottom{width:calc(100% - 18px);justify-content:space-around}.bottom a{flex:1}}
+</style>
+</head>
+<body>
+<header><div class="wrap head"><a class="brand" href="#home">T GREEN NATURALS<small>PURE • NATURAL • HEALTHY</small></a><button class="cart" id="cartBtn">🛒 <span id="cartCount">0</span></button></div></header>
+
+<main id="home">
+<section class="hero"><div class="wrap"><div class="tag">🌿 T GREEN NATURALS</div><h1>Pure goodness.<br>Made for your home.</h1><p>Traditional goodness, carefully selected products and simple ordering — all in one place.</p><div class="btns"><a class="btn primary" href="#products">Shop Products 🛍️</a><a class="btn" href="https://wa.me/917207876364?text=Hello%20T%20Green%20Naturals%2C%20I%20would%20like%20to%20place%20an%20order.">Order on WhatsApp 💬</a></div></div></section>
+
+<section class="section" id="products"><div class="wrap"><div class="tag">OUR COLLECTION</div><h2>Shop T Green Naturals</h2><p class="muted">Choose a product, check the price and add it to your cart.</p><div class="grid" id="productGrid"></div></div></section>
+
+<section class="section why"><div class="wrap"><div class="tag">WHY T GREEN NATURALS</div><h2>Simple. Natural. Reliable.</h2><div class="whygrid"><div class="whybox"><b>🌿 Natural selection</b><p class="muted">Carefully selected products.</p></div><div class="whybox"><b>🪵 Traditional goodness</b><p class="muted">Traditional methods for selected oils.</p></div><div class="whybox"><b>📦 Easy ordering</b><p class="muted">Cart + WhatsApp ordering.</p></div></div></div></section>
+
+<section class="section"><div class="wrap"><div class="order"><h2>READY TO ORDER?</h2><p class="muted">Pick your products, add them to the cart and send your order through WhatsApp.</p><button class="btn primary" id="viewCart">View Cart 🛒</button></div></div></section>
+</main>
+
+<nav class="bottom"><a href="#home">🏠<br>Home</a><a href="#products">🛍️<br>Products</a><a href="#" id="navCart">🛒<br>Cart</a><a href="https://wa.me/917207876364">💬<br>WhatsApp</a><a href="https://www.instagram.com/t_green_naturals/">📷<br>Instagram</a></nav>
+
+<div class="modal" id="cartModal"><div class="box"><button class="close" id="closeCart">×</button><h2>Your Cart</h2><div id="cartItems"></div><h3 id="cartTotal">Total: ₹0</h3><a class="wa" id="orderWhatsApp" href="#">Send Order on WhatsApp</a></div></div>
+
+<script>
+const products=[
+{id:1,name:"Cold Pressed Groundnut Oil",price:350,unit:"1 L",image:"groundnut-oil.jpg",tag:"Bestseller"},
+{id:2,name:"Cold Pressed Coconut Oil",price:450,unit:"1 L",image:"coconut-oil.jpg",tag:"Popular"},
+{id:3,name:"Multifloral Honey",price:595,unit:"",image:"multifloral-honey.jpg",tag:"Natural"},
+{id:4,name:"Pooja Oil",price:248,unit:"1 L",image:"pooja-oil.jpg",tag:"Everyday"},
+{id:5,name:"Cold Pressed Sesame Oil",price:515,unit:"1 L",image:"sesame-oil.jpg",tag:"Traditional"},
+{id:6,name:"Pink Salt",price:88,unit:"1 kg",image:"pink-salt.jpg",tag:"Kitchen"}
+];
+let cart={};
+try{cart=JSON.parse(localStorage.getItem("tg_cart")||"{}")||{}}catch(e){cart={}}
+const grid=document.getElementById("productGrid"),count=document.getElementById("cartCount"),modal=document.getElementById("cartModal"),items=document.getElementById("cartItems"),total=document.getElementById("cartTotal"),wa=document.getElementById("orderWhatsApp");
+function save(){localStorage.setItem("tg_cart",JSON.stringify(cart));renderCart()}
+function add(id){cart[id]=(cart[id]||0)+1;save()}
+function render(){
+grid.innerHTML=products.map(p=>'<article class="card"><div class="pic"><img src="'+p.image+'" alt="'+p.name+'" onerror="this.style.display=\'none\';this.nextElementSibling.style.display=\'block\'"><span class="noimg" style="display:none">🌿</span></div><div class="info"><div class="badge">'+p.tag+'</div><h3>'+p.name+'</h3><div class="desc">Quality product from T Green Naturals.</div><div class="price">₹'+p.price+(p.unit?' / '+p.unit:'')+'</div><button class="add" onclick="add('+p.id+')">Add +</button></div></article>').join("");
+renderCart()
+}
+function renderCart(){
+const entries=Object.entries(cart).filter(x=>x[1]>0);let qty=0,t=0;
+entries.forEach(x=>qty+=Number(x[1]));count.textContent=qty;
+if(!entries.length)items.innerHTML='<p class="muted">Your cart is empty.</p>';
+else items.innerHTML=entries.map(x=>{const p=products.find(v=>v.id==x[0]);t+=p.price*Number(x[1]);return '<div class="row"><span>'+p.name+'<br><small>'+x[1]+' × ₹'+p.price+'</small></span><b>₹'+(p.price*Number(x[1]))+'</b></div>'}).join("");
+total.textContent="Total: ₹"+t;
+let msg="Hello T Green Naturals!\n\nI would like to order:\n";
+entries.forEach(x=>{const p=products.find(v=>v.id==x[0]);msg+=p.name+" - "+x[1]+" x ₹"+p.price+"\n"});
+msg+="\nEstimated Total: ₹"+t;wa.href="https://wa.me/917207876364?text="+encodeURIComponent(msg)
+}
+function openCart(){modal.classList.add("show");renderCart()}function closeCart(){modal.classList.remove("show")}
+document.getElementById("cartBtn").onclick=openCart;document.getElementById("viewCart").onclick=openCart;document.getElementById("navCart").onclick=e=>{e.preventDefault();openCart()};document.getElementById("closeCart").onclick=closeCart;modal.onclick=e=>{if(e.target===modal)closeCart()};render();
+</script>
+</body>
+</html>
